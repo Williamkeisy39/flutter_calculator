@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:utipsi/widgets/person_counter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -102,28 +103,11 @@ class _UTipsiState extends State<UTipsi> {
                     },
                   ),
                   //Split Bill Area
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Split',
-                        style: theme.textTheme.titleMedium,
-                      ),
-                      Row(children: [
-                        IconButton(
-                            color: theme.colorScheme.primary,
-                            onPressed: decrement,
-                            icon: const Icon(Icons.remove)),
-                        Text(
-                          "$_personCount",
-                          style: theme.textTheme.titleMedium,
-                        ),
-                        IconButton(
-                            color: theme.colorScheme.primary,
-                            onPressed: increment,
-                            icon: const Icon(Icons.add))
-                      ])
-                    ],
+                  PersonCounter(
+                    theme: theme,
+                    personCount: _personCount,
+                    onDecrement: decrement,
+                    onIncrement: increment,
                   )
                 ],
               ),
@@ -134,3 +118,4 @@ class _UTipsiState extends State<UTipsi> {
     );
   }
 }
+
